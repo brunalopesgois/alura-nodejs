@@ -21,7 +21,8 @@
     "consign": "^0.1.6",
     "express": "^4.17.2",
     "mysql": "^2.18.1",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.12.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
