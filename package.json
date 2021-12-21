@@ -19,7 +19,9 @@
   "homepage": "https://github.com/brunalopesgois/alura-nodejs#readme",
   "dependencies": {
     "consign": "^0.1.6",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

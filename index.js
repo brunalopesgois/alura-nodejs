@@ -1,5 +1,13 @@
 const customExpress = require('./config/customExpress');
+const conn = require('./infra/conn');
 
-const app = customExpress();
+conn.connect(e => {
+    if (e) {
+        console.log(e);
+    } else {
+        console.log('Conexão bem sucedida');
+    }
 
-app.listen(3000, () => console.log('servidor rodando na porta 3000'));
+    const app = customExpress();
+    app.listen(3000, () => console.log('Servidor rodando na porta 3000'));
+});
