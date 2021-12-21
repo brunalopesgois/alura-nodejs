@@ -5,18 +5,13 @@ exports.index = (req, res) => {
 };
 
 exports.store = (req, res) => {
-    try {
-        Atendimento.create({
-            cliente: req.body.cliente,
-            pet: req.body.pet,
-            servico: req.body.servico,
-            status: req.body.status,
-            observacoes: req.body.observacoes
-        });
-    
-        res.status(201).send('');
-    } catch (error) {
-        console.log(error);
-        res.status(500).send(`Message: ${error}`);
-    }
+    Atendimento.create({
+        cliente: req.body.cliente,
+        pet: req.body.pet,
+        servico: req.body.servico,
+        status: req.body.status,
+        observacoes: req.body.observacoes
+    });
+
+    res.status(201).send('');
 };

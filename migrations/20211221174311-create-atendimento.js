@@ -28,6 +28,10 @@ module.exports = {
         allowNull: true,
         type: Sequelize.TEXT
       },
+      data_agendamento: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
