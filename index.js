@@ -4,8 +4,7 @@ const conn = require('./infra/conn');
 conn.connect(e => {
     if (e) {
         console.log(e);
-    } else {
-        console.log('Conexão bem sucedida');
+        process.exit(1);
     }
 
     const app = customExpress();
