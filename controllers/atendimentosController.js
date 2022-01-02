@@ -6,16 +6,32 @@ controller.index = (req, res) => {
         .then(atendimentos => res.json(atendimentos));
 };
 
+controller.show = (req, res) => {
+    const id = req.params.id;
+    Atendimento.findByPk(id)
+        .then(atendimento => {
+            if (!atendimento) {
+                res.status(204).send('');
+                return;
+            }
+            res.json(atendimento);
+        })
+}
+
 controller.store = (req, res) => {
     Atendimento.create({
         cliente: req.body.cliente,
         pet: req.body.pet,
         servico: req.body.servico,
         status: req.body.status,
-        observacoes: req.body.observacoes
+        observacoes: req.body.observacoes,
+        data_agendamento: req.body.data_agendamento
     })
     .then(() => res.status(201).send(''))
-    .catch(e => console.log(e));
+    .catch(e => {
+        res.status(500).send(e);
+        console.log(e);
+    });
 };
 
 module.exports = controller;

@@ -6,6 +6,11 @@ module.exports = app => {
         atendimentosController.index
     );
 
+    app.get(
+        '/atendimentos/:id',
+        atendimentosController.show
+    );
+
     app.post(
         '/atendimentos',
         atendimentosController.store
