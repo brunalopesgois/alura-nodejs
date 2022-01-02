@@ -15,4 +15,9 @@ module.exports = app => {
         '/atendimentos',
         atendimentosController.store
     );
+
+    app.put(
+        '/atendimentos/:id',
+        atendimentosController.update
+    );
 }

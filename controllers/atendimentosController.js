@@ -16,7 +16,7 @@ controller.show = (req, res) => {
             }
             res.json(atendimento);
         })
-}
+};
 
 controller.store = (req, res) => {
     Atendimento.create({
@@ -32,6 +32,32 @@ controller.store = (req, res) => {
         res.status(500).send(e);
         console.log(e);
     });
+};
+
+controller.update = (req, res) => {
+    const id = req.params.id;
+    Atendimento.findByPk(id)
+        .then(atendimento => {
+            if (atendimento === null) {
+                res.status(404).send({"erro": "Atendimento não existente!"});
+                return;
+            }
+
+            atendimento.set({
+                cliente: req.body.cliente,
+                pet: req.body.pet,
+                servico: req.body.servico,
+                status: req.body.status,
+                observacoes: req.body.observacoes,
+                data_agendamento: req.body.data_agendamento
+            });
+            atendimento.save();
+            res.json(atendimento);
+        })
+        .catch(e => {
+            console.log(e);
+            res.status(500).send(e);
+        });
 };
 
 module.exports = controller;
