@@ -60,4 +60,18 @@ controller.update = (req, res) => {
         });
 };
 
+controller.destroy = (req, res) => {
+    const atendimentoId = req.params.id;
+    Atendimento.destroy({
+        where: {
+            id: atendimentoId
+        }
+    })
+        .then(() => res.status(204).send(''))
+        .catch(e => {
+            console.log(e);
+            res.status(500).send(e);
+        });
+};
+
 module.exports = controller;

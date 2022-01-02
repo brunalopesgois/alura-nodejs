@@ -20,4 +20,9 @@ module.exports = app => {
         '/atendimentos/:id',
         atendimentosController.update
     );
+
+    app.delete(
+        '/atendimentos/:id',
+        atendimentosController.destroy
+    );
 }
